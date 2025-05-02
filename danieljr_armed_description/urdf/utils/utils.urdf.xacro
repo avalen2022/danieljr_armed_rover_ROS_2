@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<robot name="danieljr_armed" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:macro name="utils" params="">
+  <material name="Material">
+    <color rgba="0.00000 0.00000 0.00000 1.00000"/>
+  </material>
+  <material name="Material.001">
+    <color rgba="0.00000 0.00000 0.00000 1.00000"/>
+  </material>
+  <material name="Material.002">
+    <color rgba="0.00000 0.00000 0.00000 1.00000"/>
+  </material>
+  <material name="Material.003">
+    <color rgba="0.00000 0.00000 0.00000 1.00000"/>
+  </material>
+  <material name="Material.004">
+    <color rgba="0.00000 0.00000 0.00000 1.00000"/>
+  </material>
+  <material name="Material.005">
+    <color rgba="0.00000 0.00000 0.00000 1.00000"/>
+  </material>
+  <material name="Material.006">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="Material.007">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="Material.008">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="Material.009">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="Material.010">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="Material.011">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="Material.012">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="Material.021">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="Material.022">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="Material.023">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="Material.024">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="arm">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="arm.001">
+    <color rgba="0.60000 0.60000 0.60000 1.00000"/>
+  </material>
+  <material name="chasis">
+    <color rgba="0.17255 0.17647 0.18431 1.00000"/>
+  </material>
+</xacro:macro>
+</robot>

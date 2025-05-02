@@ -1,0 +1,71 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 20  # Hz
+
+    scara_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    gates_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    cushioning_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+scara_controller:
+  ros__parameters:
+    joints:
+      - aa_elevator_link_joint
+      - arm_1_link_joint
+      - arm_2_link_joint
+      - arm_2_tcp_link_joint
+      - gripper_base_link_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+gripper_controller:
+  ros__parameters:
+    joints:
+      - gripper_left_link_joint
+      - gripper_right_link_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+gates_controller:
+  ros__parameters:
+    joints:
+      - gate_1_link_joint
+      - gate_2_link_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+cushioning_controller:
+  ros__parameters:
+    joints:
+      - arm_wheel_left_link_joint
+      - arm_wheel_right_link_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true

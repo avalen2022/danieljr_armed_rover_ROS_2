@@ -1,0 +1,527 @@
+<?xml version="1.0"?>
+<robot name="danieljr_armed" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:macro name="rover_wheel_structure" params="prefix conex1_link conex2_link">
+
+    <xacro:include filename="$(find danieljr_armed_description)/urdf/utils/utils.urdf.xacro"/>
+    <!-- <xacro:utils/> -->
+
+<!-- LEFT WHEELS -->
+    <link name="${prefix}grap_1_link">
+        <collision name="${prefix}grap_1_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cylinder.005.dae" scale="0.07500 0.07500 0.25000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.01112" ixy="0.00000" ixz="0.00000" iyy="0.00141" iyz="-0.00000" izz="0.01112"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <mass value="0.50000"/>
+        </inertial>
+        <visual name="${prefix}grap_1">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Material.007"/>
+        <geometry>
+            <cylinder radius="0.07500" length="0.50000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}grap_3_link">
+        <collision name="${prefix}grap_3_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cylinder.002.dae" scale="0.07500 0.07500 0.25000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.01112" ixy="0.00000" ixz="0.00000" iyy="0.00141" iyz="-0.00000" izz="0.01112"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <mass value="0.50000"/>
+        </inertial>
+        <visual name="${prefix}grap_3">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Material.009"/>
+        <geometry>
+            <cylinder radius="0.07500" length="0.50000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}grap_5_link">
+        <collision name="${prefix}grap_5_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cylinder.001.dae" scale="0.07500 0.07500 0.25000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.01112" ixy="0.00000" ixz="0.00000" iyy="0.00141" iyz="-0.00000" izz="0.01112"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+        <mass value="0.50000"/>
+        </inertial>
+        <visual name="${prefix}grap_5">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <material name="Material.011"/>
+        <geometry>
+            <cylinder radius="0.07500" length="0.50000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}wheel_1_link">
+        <collision name="${prefix}wheel_1_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.47666" ixy="0.00000" ixz="0.00000" iyy="0.70377" iyz="0.00000" izz="0.47666"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <mass value="6.00000"/>
+        </inertial>
+        <visual name="${prefix}wheel_1">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Material"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </visual>
+        <surface>
+        <friction>
+            <ode>
+                <mu>10.000000</mu>
+                <mu2>10.000000</mu2>
+                <fdir1>0.000000 0.000000 1.000000</fdir1>
+                <slip1>0.500000</slip1>
+                <slip2>0.500000</slip2>
+            </ode>
+        </friction>
+        </surface>
+    </link>
+
+    <link name="${prefix}wheel_3_link">
+        <collision name="${prefix}wheel_3_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.001.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.47666" ixy="0.00000" ixz="0.00000" iyy="0.70377" iyz="0.00000" izz="0.47666"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <mass value="6.00000"/>
+        </inertial>
+        <visual name="${prefix}wheel_3">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Material.002"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.001.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </visual>
+        <surface>
+        <friction>
+            <ode>
+                <mu>10.000000</mu>
+                <mu2>10.000000</mu2>
+                <fdir1>0.000000 0.000000 1.000000</fdir1>
+                <slip1>0.500000</slip1>
+                <slip2>0.500000</slip2>
+            </ode>
+        </friction>
+        </surface>
+    </link>
+
+    <link name="${prefix}wheel_5_link">
+        <collision name="${prefix}wheel_5_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.002.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.47666" ixy="0.00000" ixz="0.00000" iyy="0.70377" iyz="0.00000" izz="0.47666"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+        <mass value="6.00000"/>
+        </inertial>
+        <visual name="${prefix}wheel_5">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <material name="Material.004"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.002.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </visual>
+        <surface>
+        <friction>
+            <ode>
+                <mu>10.000000</mu>
+                <mu2>10.000000</mu2>
+                <fdir1>0.000000 0.000000 1.000000</fdir1>
+                <slip1>0.500000</slip1>
+                <slip2>0.500000</slip2>
+            </ode>
+        </friction>
+        </surface>
+    </link>
+
+    <joint name="${prefix}grap_1_link_joint" type="fixed">
+        <origin rpy="1.57080 0.00000 0.00000" xyz="1.30000 0.19401 -0.22179"/>
+        <parent link="${prefix}${conex1_link}"/>
+        <child link="${prefix}grap_1_link"/>
+    </joint>
+
+    <joint name="${prefix}grap_3_link_joint" type="fixed">
+        <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 0.19401 -0.22179"/>
+        <parent link="${prefix}${conex1_link}"/>
+        <child link="${prefix}grap_3_link"/>
+    </joint>
+
+    <joint name="${prefix}grap_5_link_joint" type="fixed">
+        <origin rpy="1.57080 0.00000 0.00000" xyz="-1.30000 0.19401 -0.22179"/>
+        <parent link="${prefix}${conex1_link}"/>
+        <child link="${prefix}grap_5_link"/>
+    </joint>
+
+    <joint name="${prefix}wheel_1_link_joint" type="continuous">
+        <limit lower="0" upper="0" effort="10000.00000" velocity="50.00000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 -0.27500"/>
+        <parent link="${prefix}grap_1_link"/>
+        <child link="${prefix}wheel_1_link"/>
+        <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <joint name="${prefix}wheel_3_link_joint" type="continuous">
+        <limit lower="0" upper="0" effort="10000.00000" velocity="50.00000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.27500"/>
+        <parent link="${prefix}grap_3_link"/>
+        <child link="${prefix}wheel_3_link"/>
+        <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <joint name="${prefix}wheel_5_link_joint" type="continuous">
+        <limit lower="0" upper="0" effort="10000.00000" velocity="50.00000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.27500"/>
+        <parent link="${prefix}grap_5_link"/>
+        <child link="${prefix}wheel_5_link"/>
+        <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+<!-- RIGHT WHEELS -->
+
+    <link name="${prefix}grap_2_link">
+        <collision name="${prefix}grap_2_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cylinder.004.dae" scale="0.07500 0.07500 0.25000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.01112" ixy="0.00000" ixz="0.00000" iyy="0.00141" iyz="-0.00000" izz="0.01112"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.50000"/>
+        </inertial>
+        <visual name="${prefix}grap_2">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Material.008"/>
+        <geometry>
+            <cylinder radius="0.07500" length="0.50000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}grap_4_link">
+        <collision name="${prefix}grap_4_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cylinder.003.dae" scale="0.07500 0.07500 0.25000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.01112" ixy="0.00000" ixz="0.00000" iyy="0.00141" iyz="-0.00000" izz="0.01112"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.50000"/>
+        </inertial>
+        <visual name="${prefix}grap_4">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Material.010"/>
+        <geometry>
+            <cylinder radius="0.07500" length="0.50000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}grap_6_link">
+        <collision name="${prefix}grap_6_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cylinder.dae" scale="0.07500 0.07500 0.25000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.01112" ixy="0.00000" ixz="0.00000" iyy="0.00141" iyz="-0.00000" izz="0.01112"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <mass value="0.50000"/>
+        </inertial>
+        <visual name="${prefix}grap_6">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <material name="Material.012"/>
+        <geometry>
+            <cylinder radius="0.07500" length="0.50000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}wheel_2_link">
+        <collision name="${prefix}wheel_2_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.005.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.47666" ixy="0.00000" ixz="0.00000" iyy="0.70377" iyz="0.00000" izz="0.47666"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+        <mass value="6.00000"/>
+        </inertial>
+        <visual name="${prefix}wheel_2">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+        <material name="Material.001"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.005.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </visual>
+        <surface>
+        <friction>
+            <ode>
+                <mu>10.000000</mu>
+                <mu2>10.000000</mu2>
+                <fdir1>0.000000 0.000000 1.000000</fdir1>
+                <slip1>0.500000</slip1>
+                <slip2>0.500000</slip2>
+            </ode>
+        </friction>
+        </surface>
+    </link>
+
+    <link name="${prefix}wheel_4_link">
+        <collision name="${prefix}wheel_4_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.004.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.47666" ixy="0.00000" ixz="0.00000" iyy="0.70377" iyz="0.00000" izz="0.47666"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+        <mass value="6.00000"/>
+        </inertial>
+        <visual name="${prefix}wheel_4">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+        <material name="Material.003"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.004.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </visual>
+        <surface>
+        <friction>
+            <ode>
+                <mu>10.000000</mu>
+                <mu2>10.000000</mu2>
+                <fdir1>0.000000 0.000000 1.000000</fdir1>
+                <slip1>0.500000</slip1>
+                <slip2>0.500000</slip2>
+            </ode>
+        </friction>
+        </surface>
+    </link>
+
+    <link name="${prefix}wheel_6_link">
+        <collision name="${prefix}wheel_6_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.003.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.47666" ixy="0.00000" ixz="0.00000" iyy="0.70377" iyz="0.00000" izz="0.47666"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 -0.00000"/>
+        <mass value="6.00000"/>
+        </inertial>
+        <visual name="${prefix}wheel_6">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 -0.00000"/>
+        <material name="Material.005"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Torus.003.dae" scale="0.40000 0.40000 1.30000"/>
+        </geometry>
+        </visual>
+        <surface>
+        <friction>
+            <ode>
+                <mu>10.000000</mu>
+                <mu2>10.000000</mu2>
+                <fdir1>0.000000 0.000000 1.000000</fdir1>
+                <slip1>0.500000</slip1>
+                <slip2>0.500000</slip2>
+            </ode>
+        </friction>
+        </surface>
+    </link>
+
+    <joint name="${prefix}grap_2_link_joint" type="fixed">
+        <origin rpy="1.57080 0.00000 0.00000" xyz="1.30000 -0.19401 -0.22179"/>
+        <parent link="${prefix}${conex2_link}"/>
+        <child link="${prefix}grap_2_link"/>
+    </joint>
+
+    <joint name="${prefix}grap_4_link_joint" type="fixed">
+        <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 -0.19401 -0.22179"/>
+        <parent link="${prefix}${conex2_link}"/>
+        <child link="${prefix}grap_4_link"/>
+    </joint>
+
+    <joint name="${prefix}grap_6_link_joint" type="fixed">
+        <origin rpy="1.57080 0.00000 0.00000" xyz="-1.30000 -0.19401 -0.22179"/>
+        <parent link="${prefix}${conex2_link}"/>
+        <child link="${prefix}grap_6_link"/>
+    </joint>
+
+    <joint name="${prefix}wheel_2_link_joint" type="continuous">
+        <limit lower="0" upper="0" effort="10000.00000" velocity="50.00000"/>
+        <origin rpy="3.14000 0.00000 0.00000" xyz="0.00000 0.00000 0.27500"/>
+        <parent link="${prefix}grap_2_link"/>
+        <child link="${prefix}wheel_2_link"/>
+        <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <joint name="${prefix}wheel_4_link_joint" type="continuous">
+        <limit lower="0" upper="0" effort="10000.00000" velocity="50.00000"/>
+        <origin rpy="3.14000 0.00000 0.00000" xyz="0.00000 0.00000 0.27500"/>
+        <parent link="${prefix}grap_4_link"/>
+        <child link="${prefix}wheel_4_link"/>
+        <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <joint name="${prefix}wheel_6_link_joint" type="continuous">
+        <limit lower="0" upper="0" effort="10000.00000" velocity="50.00000"/>
+        <origin rpy="3.14000 0.00000 0.00000" xyz="0.00000 0.00000 0.27500"/>
+        <parent link="${prefix}grap_6_link"/>
+        <child link="${prefix}wheel_6_link"/>
+        <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <transmission name="${prefix}wheel_1_link_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="${prefix}wheel_1_link_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+        <actuator name="${prefix}wheel_1_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="${prefix}wheel_1_link">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!-- <kp>2.75e6</kp> -->
+        <!-- <kd>8.25e4</kd> -->
+        <!-- <fdir1>0 0 0</fdir1> -->
+        <!-- <maxContacts>4</maxContacts> -->
+    </gazebo>
+
+    <transmission name="${prefix}wheel_2_link_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="${prefix}wheel_2_link_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+        <actuator name="${prefix}wheel_2_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="${prefix}wheel_2_link">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!-- <kp>2.75e6</kp> -->
+        <!-- <kd>8.25e4</kd> -->
+        <!-- <fdir1>0 0 0</fdir1> -->
+        <!-- <maxContacts>4</maxContacts> -->
+    </gazebo>
+
+    <transmission name="${prefix}wheel_3_link_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="${prefix}wheel_3_link_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+        <actuator name="${prefix}wheel_3_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="${prefix}wheel_3_link">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!-- <kp>2.75e6</kp> -->
+        <!-- <kd>8.25e4</kd> -->
+        <!-- <fdir1>0 0 0</fdir1> -->
+        <!-- <maxContacts>4</maxContacts> -->
+    </gazebo>
+
+    <transmission name="${prefix}wheel_4_link_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="${prefix}wheel_4_link_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+        <actuator name="${prefix}wheel_4_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="${prefix}wheel_4_link">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!-- <kp>2.75e6</kp> -->
+        <!-- <kd>8.25e4</kd> -->
+        <!-- <fdir1>0 0 0</fdir1> -->
+        <!-- <maxContacts>4</maxContacts> -->
+    </gazebo>
+
+    <transmission name="${prefix}wheel_5_link_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="${prefix}wheel_5_link_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+        <actuator name="${prefix}wheel_5_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="${prefix}wheel_5_link">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!-- <kp>2.75e6</kp> -->
+        <!-- <kd>8.25e4</kd> -->
+        <!-- <fdir1>0 0 0</fdir1> -->
+        <!-- <maxContacts>4</maxContacts> -->
+    </gazebo>
+
+    <transmission name="${prefix}wheel_6_link_joint_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="${prefix}wheel_6_link_joint">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+        <actuator name="${prefix}wheel_6_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="${prefix}wheel_6_link">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!-- <kp>2.75e6</kp> -->
+        <!-- <kd>8.25e4</kd> -->
+        <!-- <fdir1>0 0 0</fdir1> -->
+        <!-- <maxContacts>4</maxContacts> -->
+    </gazebo>
+</xacro:macro>
+</robot>

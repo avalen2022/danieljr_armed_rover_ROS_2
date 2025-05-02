@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: danieljr_armed_description
+    relative_path: robots/danieljr_armed.urdf.xacro
+  srdf:
+    relative_path: config/danieljr_armed.srdf
+  package_settings:
+    author_name: Alvaro V.Maiquez
+    author_email: saconalva2@gmail.com
+    generated_timestamp: 1745879301
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

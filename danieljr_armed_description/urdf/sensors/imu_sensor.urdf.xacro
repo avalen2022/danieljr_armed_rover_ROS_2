@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="danieljr_armed" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:macro name="imu_sensor_structure" params="prefix conex_link">
+    <link name="${prefix}imu_link">
+    </link>
+
+    <joint name="${prefix}imu_link_joint" type="fixed">
+        <parent link="${prefix}${conex_link}"/>
+        <child link="${prefix}imu_link"/>
+
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+  <gazebo reference="${prefix}imu_link">
+    <sensor name="${prefix}imu_sensor" type="imu">
+      <always_on>1</always_on>
+      <update_rate>30</update_rate>
+      <topic>${prefix}imu_sensor/data</topic>
+    </sensor>
+  </gazebo>
+</xacro:macro>
+</robot>

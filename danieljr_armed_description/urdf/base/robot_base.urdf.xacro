@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<robot name="danieljr_armed" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:macro name="chasis_structure" params="prefix max_s max_e close_g">
+
+    <xacro:include filename="$(find danieljr_armed_description)/urdf/utils/utils.urdf.xacro"/>
+    <xacro:include filename="$(find danieljr_armed_description)/urdf/arm/scara.urdf.xacro"/>
+    <!-- <xacro:utils/> -->
+
+    <!-- REP -->
+    <link name="${prefix}base_footprint">
+    </link>
+    <link name="${prefix}base_link">
+    </link>
+
+    <!-- URDF -->
+    <link name="${prefix}chasis_link">
+        <collision name="${prefix}chasis.fence.001_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00033"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cube.135.dae" scale="1.00000 0.08750 0.02500"/>
+        </geometry>
+        </collision>
+        <collision name="${prefix}chasis.fence.002_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.98285 -0.01123 0.31767"/>
+        <geometry>
+            <box size="0.10000 1.62000 0.50000"/>
+        </geometry>
+        </collision>
+        <collision name="${prefix}chasis.fence.003_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00033"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cube.137.dae" scale="1.00000 0.08750 0.02500"/>
+        </geometry>
+        </collision>
+        <collision name="${prefix}chasis.fence.004_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00033"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cube.138.dae" scale="1.00000 0.08750 0.02500"/>
+        </geometry>
+        </collision>
+        <collision name="${prefix}chasis_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.26715 -0.00000 0.00076"/>
+        <geometry>
+            <box size="2.80000 1.80000 0.17555"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="148.76589" ixy="-0.68567" ixz="103.55062" iyy="704.36524" iyz="0.13769" izz="772.33136"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.09918 -0.00001 0.08906"/>
+        <mass value="400.00000"/>
+        </inertial>
+        <visual name="${prefix}chasis">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00033"/>
+        <material name="chasis"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cube.001.dae" scale="1.00000 0.08750 0.02500"/>
+        </geometry>
+        </visual>
+        <visual name="${prefix}chasis.fence.001">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00033"/>
+        <material name="chasis"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cube.135.dae" scale="1.00000 0.08750 0.02500"/>
+        </geometry>
+        </visual>
+        <visual name="${prefix}chasis.fence.002">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.98285 -0.01123 0.37805"/>
+        <material name="chasis"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cube.012.dae" scale="0.05000 0.05000 0.15000"/>
+        </geometry>
+        </visual>
+        <visual name="${prefix}chasis.fence.003">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00033"/>
+        <material name="chasis"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cube.137.dae" scale="1.00000 0.08750 0.02500"/>
+        </geometry>
+        </visual>
+        <visual name="${prefix}chasis.fence.004">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00033"/>
+        <material name="chasis"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cube.138.dae" scale="1.00000 0.08750 0.02500"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}aa_elevator_link">
+        <collision name="${prefix}aa_elevator_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cube.002.dae" scale="1.00000 0.08750 0.02500"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.02048" ixy="0.00000" ixz="0.00000" iyy="0.00173" iyz="0.00000" izz="0.02208"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <mass value="2.00000"/>
+        </inertial>
+        <visual name="${prefix}aa_elevator">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <material name="chasis"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cube.258.dae" scale="1.00000 0.10000 0.02500"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}arm_wheel_left_link">
+        <collision name="${prefix}arm_wheel_left_collision">
+        <origin rpy="0.00000 1.26246 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cylinder.011.dae" scale="0.05000 0.05000 0.65000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.08742" ixy="-0.00153" ixz="-0.00562" iyy="2.09869" iyz="-0.00217" izz="2.01952"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <mass value="5.00000"/>
+        </inertial>
+        <visual name="${prefix}arm_wheel_left">
+        <origin rpy="0.00000 1.26246 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="Material.006"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cylinder.011.dae" scale="0.05000 0.05000 0.65000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}arm_wheel_right_link">
+        <collision name="${prefix}arm_wheel_right_collision">
+        <origin rpy="0.00000 1.26246 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cylinder.014.dae" scale="0.05000 0.05000 0.65000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.08739" ixy="0.00153" ixz="-0.00562" iyy="2.09769" iyz="0.00217" izz="2.01855"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+        <mass value="5.00000"/>
+        </inertial>
+        <visual name="${prefix}arm_wheel_right">
+        <origin rpy="0.00000 1.26246 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <material name="Material.006"/>
+        <geometry>
+            <mesh filename="package://danieljr_armed_description/meshes/dae/Cylinder.014.dae" scale="0.05000 0.05000 0.65000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}gate_1_link">
+        <inertial>
+        <inertia ixx="0.00552" ixy="0.00000" ixz="0.00000" iyy="0.66708" iyz="0.00000" izz="0.67177"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <mass value="2.00000"/>
+        </inertial>
+        <visual name="${prefix}gate_1">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="chasis"/>
+        <geometry>
+            <box size="2.00000 0.17500 0.05000"/>
+        </geometry>
+        </visual>
+        <collision name="${prefix}gate_1_collision">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+            <geometry>
+                <box size="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="${prefix}gate_2_link">
+        <inertial>
+        <inertia ixx="0.00552" ixy="0.00000" ixz="0.00000" iyy="0.66708" iyz="0.00000" izz="0.67177"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="2.00000"/>
+        </inertial>
+        <visual name="${prefix}gate_2">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <material name="chasis"/>
+        <geometry>
+            <box size="2.00000 0.17500 0.05000"/>
+        </geometry>
+        </visual>
+        <collision name="${prefix}gate_2_collision">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+            <geometry>
+                <box size="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="${prefix}aa_elevator_link_joint" type="prismatic">
+        <limit lower="0.00000" upper="${max_e}" effort="1000.00000" velocity="1.50000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-1.08285 0.00000 -0.37467"/>
+        <parent link="${prefix}chasis_link"/>
+        <child link="${prefix}aa_elevator_link"/>
+        <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+    <joint name="${prefix}arm_wheel_left_link_joint" type="prismatic">
+        <limit lower="-0.10000" upper="${max_s}" effort="4000.00000" velocity="1.00000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.03285 0.30599 -0.51054"/>
+        <parent link="${prefix}chasis_link"/>
+        <child link="${prefix}arm_wheel_left_link"/>
+        <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <joint name="${prefix}arm_wheel_right_link_joint" type="prismatic">
+        <limit lower="-0.10000" upper="${max_s}" effort="4000.00000" velocity="1.00000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.03286 -0.30599 -0.51054"/>
+        <parent link="${prefix}chasis_link"/>
+        <child link="${prefix}arm_wheel_right_link"/>
+        <axis xyz="0.00000 0.00000 -1.00000"/>
+    </joint>
+
+    <joint name="${prefix}gate_1_link_joint" type="prismatic">
+        <limit lower="0.00000" upper="${close_g}" effort="500.00000" velocity="0.50000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.03285 -0.08750 0.09267"/>
+        <parent link="${prefix}chasis_link"/>
+        <child link="${prefix}gate_1_link"/>
+        <axis xyz="0.00000 -1.00000 0.00000"/>
+    </joint>
+
+    <joint name="${prefix}gate_2_link_joint" type="prismatic">
+        <limit lower="0.00000" upper="${close_g}" effort="500.00000" velocity="0.50000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.03285 0.08750 0.09267"/>
+        <parent link="${prefix}chasis_link"/>
+        <child link="${prefix}gate_2_link"/>
+        <axis xyz="0.00000 1.00000 0.00000"/>
+    </joint>
+
+    <!-- REP -->
+
+    <joint name="${prefix}base_to_footprint" type="fixed">
+        <parent link="${prefix}base_footprint"/>
+        <child link="${prefix}base_link"/>
+
+        <origin xyz="0 0 1.229351" rpy="0 0 0"/>
+    </joint>
+
+    <joint name="${prefix}base_to_link" type="fixed">
+        <parent link="${prefix}base_link"/>
+        <child link="${prefix}chasis_link"/>
+
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- <xacro:arm_structure conex_link="aa_elevator_link" lp="-0.20000" up="1.80000"/> -->
+    <!-- <xacro:rover_wheel_structure conex1_link="arm_wheel_left_link" conex2_link="arm_wheel_right_link"/> -->
+
+</xacro:macro>
+</robot>

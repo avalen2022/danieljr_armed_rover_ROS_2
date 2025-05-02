@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="danieljr_armed">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import danieljr_armed urdf file -->
+    <xacro:include filename="$(find danieljr_armed_description)/robots/danieljr_armed.urdf.xacro" />
+    <xacro:include filename="danieljr_armed.srdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="danieljr_armed.ros2_control.xacro" />
+
+
+    <xacro:danieljr_armed_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

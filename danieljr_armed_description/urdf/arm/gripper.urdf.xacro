@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<robot name="danieljr_armed" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:macro name="gripper_structure" params="prefix arm_link mc lr ur">
+
+    <xacro:include filename="$(find danieljr_armed_description)/urdf/utils/utils.urdf.xacro"/>
+    <!-- <xacro:utils/> -->
+
+    <link name="${prefix}gripper_base_link">
+        <collision name="${prefix}gripper_base_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <geometry>
+            <box size="0.15000 0.60000 0.02000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.01502" ixy="0.00000" ixz="0.00000" iyy="0.00095" iyz="0.00000" izz="0.01594"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.50000"/>
+        </inertial>
+        <visual name="${prefix}gripper_base">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <material name="Material.024"/>
+        <geometry>
+            <box size="0.15000 0.60000 0.02000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}gripper_left_link">
+        <collision name="${prefix}gripper_left_collision">
+        <origin rpy="-1.57080 -0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <geometry>
+            <box size="0.30000 0.02000 0.18000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.00137" ixy="0.00000" ixz="0.00000" iyy="0.00229" iyz="0.00000" izz="0.00095"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="0.50000"/>
+        </inertial>
+        <visual name="${prefix}gripper_left">
+        <origin rpy="-1.57080 -0.00000 0.00000" xyz="-0.00000 0.00000 -0.00000"/>
+        <material name="Material.006"/>
+        <geometry>
+            <box size="0.30000 0.02000 0.18000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="${prefix}gripper_right_link">
+        <collision name="${prefix}gripper_right_collision">
+        <origin rpy="1.57080 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <geometry>
+            <box size="0.30000 0.02000 0.18000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="0.00137" ixy="0.00000" ixz="-0.00000" iyy="0.00229" iyz="0.00000" izz="0.00095"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+        <mass value="0.50000"/>
+        </inertial>
+        <visual name="${prefix}gripper_right">
+        <origin rpy="1.57080 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+        <material name="Material.007"/>
+        <geometry>
+            <box size="0.30000 0.02000 0.18000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <joint name="${prefix}gripper_base_link_joint" type="revolute">
+        <limit lower="${lr}" upper="${ur}" effort="3000.00000" velocity="10.00000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 -0.26000"/>
+        <parent link="${prefix}${arm_link}"/>
+        <child link="${prefix}gripper_base_link"/>
+        <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+    <joint name="${prefix}gripper_left_link_joint" type="prismatic">
+        <limit lower="0.00000" upper="${mc}" effort="3000.00000" velocity="0.50000"/>
+        <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 0.29000 -0.10000"/>
+        <parent link="${prefix}gripper_base_link"/>
+        <child link="${prefix}gripper_left_link"/>
+        <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+    <joint name="${prefix}gripper_right_link_joint" type="prismatic">
+        <limit lower="0.00000" upper="${mc}" effort="3000.00000" velocity="0.50000"/>
+        <origin rpy="-1.57080 -0.00000 0.00000" xyz="-0.00000 -0.29000 -0.10000"/>
+        <parent link="${prefix}gripper_base_link"/>
+        <child link="${prefix}gripper_right_link"/>
+        <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+
+</xacro:macro>
+</robot>

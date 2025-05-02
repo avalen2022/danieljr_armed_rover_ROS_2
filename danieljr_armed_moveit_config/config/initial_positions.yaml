@@ -1,0 +1,14 @@
+# Default initial positions for danieljr_armed's ros2_control fake system
+
+initial_positions:
+  aa_elevator_link_joint: 1.2300
+  arm_1_link_joint: 0
+  arm_2_link_joint: 0
+  arm_2_tcp_link_joint: 0
+  arm_wheel_left_link_joint: 0
+  arm_wheel_right_link_joint: 0
+  gate_1_link_joint: 0
+  gate_2_link_joint: 0
+  gripper_base_link_joint: 0
+  gripper_left_link_joint: 0
+  gripper_right_link_joint: 0
